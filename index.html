@@ -603,10 +603,10 @@ const svcImages=[
  'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80',
  'https://images.unsplash.com/photo-1541971875076-8f970d573be6?auto=format&fit=crop&w=900&q=80',
  'https://www.ommmdetailing.com/estimation-qs.png',
- 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80',
- 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80', 
+ 'https://www.ommmdetailing.com/Engineering_Design.png',
+ 'https://www.ommmdetailing.com/PT.png', 
  'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=80',
- 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80'
+ 'https://www.ommmdetailing.com/IT.png',
 ];
 serviceGrid.innerHTML=services.map((s,i)=>`<div class="svc-card" data-service="${i}"><div class="svc-image"><img src="${svcImages[i]}" alt="${s.title}" loading="lazy"></div><div class="svc-content"><div class="icon">${svcIcons[i]}</div><h3>${s.title}</h3><p>${s.lead}</p><button type="button" class="service-more">View detailed service →</button></div></div>`).join('');
 const detail=document.getElementById('serviceDetail'),title=document.getElementById('serviceTitle'),lead=document.getElementById('serviceLead'),list=document.getElementById('serviceList');let activeServiceTitle='';document.querySelectorAll('.svc-card').forEach((card,i)=>card.addEventListener('click',()=>{document.querySelectorAll('.svc-card').forEach(c=>c.classList.remove('selected'));card.classList.add('selected');const s=services[i];title.textContent=s.title;lead.textContent=s.lead;list.innerHTML=s.items.map(x=>'<li>'+x+'</li>').join('');activeServiceTitle=s.title;detail.classList.add('active');detail.scrollIntoView({behavior:'smooth',block:'center'});}));document.getElementById('closeService').onclick=()=>{detail.classList.remove('active');document.querySelectorAll('.svc-card').forEach(c=>c.classList.remove('selected'));document.getElementById('services').scrollIntoView({behavior:'smooth'});};document.getElementById('serviceContactLink').addEventListener('click',()=>{const sel=document.getElementById('service');[...sel.options].forEach(o=>{if(o.value===activeServiceTitle)sel.value=activeServiceTitle;});});
