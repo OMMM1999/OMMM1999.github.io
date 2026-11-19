@@ -569,7 +569,8 @@ adminLoginForm.addEventListener('submit',async e=>{
   }
 });
 auth.onAuthStateChanged(user=>{
-  isAdmin=!!user;
+  isAdmin=!!user &&
+    user.uid === "wdG1mpABSQNqDq4dwwiQb8WwwCs2";
   portfolioAdmin.style.display=isAdmin?'block':'none';
   adminLoginLink.textContent=isAdmin?'Logout (Admin)':'Admin';
   renderProjects();
